@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import Home from './Components/Home'
 
-export default class SaveEat extends Component {
+export default class Lukeat extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
@@ -24,4 +24,4 @@ export default class SaveEat extends Component {
   }
 }
 
-AppRegistry.registerComponent('SaveEat', () => SaveEat);
+AppRegistry.registerComponent('Lukeat', () => Lukeat);

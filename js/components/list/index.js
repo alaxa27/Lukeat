@@ -50,6 +50,7 @@ class NHList extends Component {
 					/>
 				</Content>
 				<Button block onPress={() => this.props.navigation.navigate('AddList')}>
+					<Text>Ajouter une recette</Text>
 				</Button>
 			</Container>
 		);

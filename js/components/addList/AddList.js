@@ -48,7 +48,7 @@ export default class AddList extends Component {
             <Title>Ajouter une recette</Title>
           </Body>
         </Header>
-        <Content contentContainerStyle={{marginVertical: 20}}>
+        <Content style={{marginVertical: 20}}>
           <Form>
             <Item floatingLabel>
               <Label>Nom de la recette</Label>

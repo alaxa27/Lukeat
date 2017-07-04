@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Text, Button} from 'react-native'
-import { Container, Content, Form, Item, Input } from 'native-base'
+import {Text, StyleSheet} from 'react-native'
+import { Container, Content, Form, Item, Input, Header, Left, Right, Body, Icon, Button, Title, Label } from 'native-base'
 //import { addItemToDB } from '../../firebase/firebase'
 
 
@@ -30,52 +30,69 @@ export default class AddList extends Component {
     this.setState({quantite: ''})
   }
 
-  retourEnArriere() {
-    this.props.navigation.navigate('AddList')
-  }
-
 
 
   render() {
     return(
-      <Container style={{margin: 20}}>
-        <Content>
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.goBack()}>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Ajouter un ingrédient</Title>
+          </Body>
+        </Header>
+        <Content contentContainerStyle={{marginVertical: 20}}>
           <Form>
-            <Item>
+            <Item floatingLabel>
+              <Label>Nom de l'ingrédient</Label>
               <Input
-                placeholder="Nom de la recette"
                 autoCapitalize='sentences'
                 value = {this.state.nomIngredient}
                 onChangeText = {(nomIngredient) => this.setState({nomIngredient})}
               />
             </Item>
-            <Item>
+            <Item floatingLabel last>
+              <Label>Description</Label>
               <Input
-                placeholder="Description"
+                autoCapitalize='sentences'
                 value = {this.state.description}
                 onChangeText = {(description) => this.setState({description})}
               />
             </Item>
-            <Item last>
+            <Item floatingLabel last>
+              <Label>Quantité</Label>
               <Input
-                placeholder="Quantité"
+                autoCapitalize='sentences'
                 value = {this.state.quantite}
                 onChangeText = {(quantite) => this.setState({quantite})}
               />
             </Item>
-            <Button
-              color = '#003366' //blue
+            <Button rounded block
+              style={{marginTop: 70, marginBottom: 30, marginHorizontal: 70, }}
               onPress = {this.ajouterIngredient}
-              title = "Ajouter"
-            />
-            <Button
-              color = '#003366' //blue
-              onPress = {() => this.retourEnArriere()}
-              title = "Terminer"
-            />
+            >
+            <Text style={styles.text} >Ajouter</Text>
+            </Button>
+            <Button rounded block
+              style={{marginBottom: 30, marginHorizontal: 70}}
+              onPress = {() => this.props.navigation.goBack()}
+            >
+            <Text style={styles.text}>Terminer</Text>
+            </Button>
           </Form>
         </Content>
       </Container>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  text: {
+    color: 'white',
+    fontSize: 16,
+  },
+})

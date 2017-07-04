@@ -6,33 +6,16 @@ import styles from './styles';
 
 const datas = [
 	{
-		route: 'NHBasicList',
-		text: 'Basic List',
+		route: 'Liste1',
+		text: 'Liste 1',
 	},
 	{
-		route: 'NHListDivider',
-		text: 'List Divider',
+		route: 'Liste2',
+		text: 'Liste 2',
 	},
 	{
-		route: 'NHListHeader',
-		text: 'List Header',
-	},
-	{
-		route: 'NHListIcon',
-		text: 'List Icon',
-	},
-	{
-		route: 'NHListAvatar',
-		text: 'List Avatar',
-	},
-	{
-		route: 'NHListThumbnail',
-		text: 'List Thumbnail',
-	},
-	,
-	{
-		route: 'NHListSeparator',
-		text: 'List Separator',
+		route: 'Liste3',
+		text: 'Liste 3',
 	},
 ];
 
@@ -47,7 +30,7 @@ class NHList extends Component {
 						</Button>
 					</Left>
 					<Body>
-						<Title>List</Title>
+						<Title>Mes recettes</Title>
 					</Body>
 					<Right />
 				</Header>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Text, Button} from 'react-native'
-import { Container, Content, Form, Item, Input } from 'native-base'
+import {Text, StyleSheet} from 'react-native'
+import { Container, Content, Form, Item, Input, Header, Left, Right, Body, Icon, Button, Title, Label } from 'native-base'
 //import { addListToDB } from '../../firebase/firebase'
 
 
@@ -35,49 +35,71 @@ export default class AddList extends Component {
     this.props.navigation.navigate('AddItem')
   }
 
-  retourEnArriere() {
-    this.props.navigation.navigate('NHList')
-  }
-
-
   render() {
     return(
-      <Container style={{margin: 20}}>
-        <Content>
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.goBack()}>
+              <Icon name="arrow-back" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Ajouter une recette</Title>
+          </Body>
+        </Header>
+        <Content contentContainerStyle={{marginVertical: 20}}>
           <Form>
-            <Item>
+            <Item floatingLabel>
+              <Label>Nom de la recette</Label>
               <Input
-                placeholder="Nom de la recette"
                 autoCapitalize='sentences'
                 value = {this.state.nomRecette}
                 onChangeText = {(nomRecette) => this.setState({nomRecette})}
               />
-            </Item>
-            <Item last>
+          </Item>
+            <Item floatingLabel last>
+              <Label>Description</Label>
               <Input
-                placeholder="Description"
+                autoCapitalize='sentences'
                 value = {this.state.description}
                 onChangeText = {(description) => this.setState({description})}
               />
             </Item>
-            <Button
-              color = '#003366' //blue
+            <Button rounded block
+              style={{marginTop: 70, marginBottom: 30, marginHorizontal: 70, }}
               onPress = {this.creerListe}
-              title = "Créer la recette"
-            />
-            <Button
-              color = '#003366' //blue
+            >
+            <Text style={styles.text} >Créer la recette</Text>
+            </Button>
+            <Button rounded block
+              style={{marginBottom: 30, marginHorizontal: 70}}
               onPress = {() => this.ajouterIngredient()}
-              title = "Ajouter un ingrédient"
-            />
-            <Button
-              color = '#003366' //blue
-              onPress = {() => this.retourEnArriere()}
-              title = "Terminer"
-            />
+            >
+            <Text style={styles.text}>Ajouter un ingrédient</Text>
+            </Button>
+            <Button rounded block
+              style={{marginBottom: 30, marginHorizontal: 70}}
+              onPress = {() => this.props.navigation.goBack()}
+            >
+            <Text style={styles.text}>Terminer</Text>
+            </Button>
           </Form>
         </Content>
       </Container>
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  title: {
+    color: 'white',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  text: {
+    color: 'white',
+    fontSize: 16,
+  },
+})

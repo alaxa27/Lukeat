@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, Button, View, TextInput, TouchableOpacity } from 'react-native'
 import styles from "./styles";
-//import { firebaseRef, writeUserData} from '../../firebase/firebase'
+import { firebaseRef, writeUserData} from '../../firebase/firebase'
 
 
 
@@ -24,10 +24,15 @@ export default class SignupForm extends Component {
   }
 
   signup() {
-      //firebaseRef.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-      //writeUserData(user.uid, this.state.nom, this.state.prenom, this.state.email)
-      this.props.navigation.navigate("NHList")
-    //}).catch((error) => alert(error.message))
+    if (this.state.password === this.state.confirmPassword) {
+      firebaseRef.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
+      writeUserData(user.uid, this.state.nom, this.state.prenom, this.state.email)
+      this.props.navigation.navigate("NHList", {userID: user.uid})
+      }).catch((error) => alert(error.message))
+    } else {
+      alert("Mots de passe non identiques!")
+    }
+
   }
 
   render() {

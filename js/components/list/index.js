@@ -20,6 +20,13 @@ const datas = [
 ];
 
 class NHList extends Component {
+	constructor(props) {
+    super(props)
+    this.state = {
+      userID: this.props.navigation.state.params.userID
+      }
+  }
+
 	render() {
 		return (
 			<Container style={styles.container}>

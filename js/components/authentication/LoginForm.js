@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, Button, View, TextInput, TouchableOpacity } from 'react-native'
 import styles from "./styles";
-//import { firebaseRef, fetchUserData } from '../../firebase/firebase'
+import { firebaseRef, fetchUserData } from '../../firebase/firebase'
 
 
 export default class LoginForm extends Component {
@@ -9,8 +9,8 @@ export default class LoginForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      email: '',//'osama@osama.com',
-      password: ''//'osamaosama',
+      email: 'osama@osama.com',
+      password: 'osamaosama',
       }
     this.login = this.login.bind(this)
   }
@@ -20,9 +20,9 @@ export default class LoginForm extends Component {
   }
 
   login() {
-    //firebaseRef.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-      this.props.navigation.navigate("NHList")
-    //}).catch((error) => alert(`${error.code}: ${error.message}`));
+    firebaseRef.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
+    this.props.navigation.navigate("NHList", {userID: user.uid})
+    }).catch((error) => alert(`${error.code}: ${error.message}`));
 
   }
 

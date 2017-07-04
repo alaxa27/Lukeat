@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Text, Button, View, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
-import { Container, Content, Form, Item, Input } from 'native-base'
+import { Text, Button, View, TextInput, TouchableOpacity } from 'react-native'
 import styles from "./styles";
 //import { firebaseRef, fetchUserData } from '../../firebase/firebase'
 
@@ -37,7 +36,8 @@ export default class LoginForm extends Component {
             returnKeyType = 'next'
             keyboardType='email-address'
             underlineColorAndroid = {'transparent'}
-            style = {styles.input}
+            onSubmitEditing = {() => this.passwordInput.focus()}
+            style = {[styles.input, {marginBottom: 30}]}
             value = {this.state.email}
             onChangeText = {(email) => this.setState({email})}
           />
@@ -47,7 +47,8 @@ export default class LoginForm extends Component {
             returnKeyType = 'go'
             secureTextEntry
             underlineColorAndroid = {'transparent'}
-            style = {styles.input}
+            ref = {(input) => this.passwordInput = input}
+            style = {[styles.input, {marginBottom: 30}]}
             value = {this.state.password}
             onChangeText = {(password) => this.setState({password})}
           />

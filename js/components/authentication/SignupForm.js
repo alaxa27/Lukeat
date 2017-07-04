@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
-import { Container, Content, Form, Item, Input } from 'native-base'
+import { Text, Button, View, TextInput, TouchableOpacity } from 'react-native'
+import styles from "./styles";
 //import { firebaseRef, writeUserData} from '../../firebase/firebase'
 
 
@@ -14,6 +14,7 @@ export default class SignupForm extends Component {
       prenom: '',
       email: '',
       password: '',
+      confirmPassword: '',
       }
     this.signup = this.signup.bind(this)
   }
@@ -31,47 +32,72 @@ export default class SignupForm extends Component {
 
   render() {
     return(
-      <Container style={{margin: 20}}>
-        <Content>
-          <Form>
-            <Item>
-              <Input
-                placeholder="Nom"
-                autoCapitalize='words'
-                value = {this.state.nom}
-                onChangeText = {(nom) => this.setState({nom})}
-              />
-              <Input
-                placeholder="Prénom"
-                autoCapitalize='words'
-                value = {this.state.prenom}
-                onChangeText = {(prenom) => this.setState({prenom})}
-              />
-            </Item>
-            <Item>
-              <Input
-                keyboardType='email-address'
-                placeholder="Email"
-                value = {this.state.email}
-                onChangeText = {(email) => this.setState({email})}
-              />
-            </Item>
-            <Item last>
-              <Input
-                placeholder="Mot de passe"
-                value = {this.state.password}
-                onChangeText = {(password) => this.setState({password})}
-                secureTextEntry = {true}
-              />
-            </Item>
-            <Button
-              color = '#003366' //blue
-              onPress = {this.signup}
-              title = 'Envoyer'
+        <View style={styles.container} >
+          <View style={styles.view} >
+            <TextInput
+              placeholder = 'Nom'
+              placeholderTextColor = 'white'
+              returnKeyType = 'next'
+              underlineColorAndroid = {'transparent'}
+              onSubmitEditing = {() => this.prenomInput.focus()}
+              style = {styles.input}
+              value = {this.state.nom}
+              onChangeText = {(nom) => this.setState({nom})}
             />
-          </Form>
-        </Content>
-      </Container>
+            <TextInput
+              placeholder = 'Prenom'
+              placeholderTextColor = 'white'
+              returnKeyType = 'next'
+              underlineColorAndroid = {'transparent'}
+              ref = {(input) => this.prenomInput = input}
+              onSubmitEditing = {() => this.emailInput.focus()}
+              style = {styles.input}
+              value = {this.state.prenom}
+              onChangeText = {(prenom) => this.setState({prenom})}
+            />
+            <TextInput
+              placeholder = 'Email'
+              placeholderTextColor = 'white'
+              returnKeyType = 'next'
+              keyboardType='email-address'
+              underlineColorAndroid = {'transparent'}
+              ref = {(input) => this.emailInput = input}
+              onSubmitEditing = {() => this.passwordInput.focus()}
+              style = {styles.input}
+              value = {this.state.email}
+              onChangeText = {(email) => this.setState({email})}
+            />
+            <TextInput
+              placeholder = 'Mot de passe'
+              placeholderTextColor = 'white'
+              returnKeyType = 'next'
+              secureTextEntry
+              underlineColorAndroid = {'transparent'}
+              ref = {(input) => this.passwordInput = input}
+              onSubmitEditing = {() => this.confirmPasswordInput.focus()}
+              style = {styles.input}
+              value = {this.state.password}
+              onChangeText = {(password) => this.setState({password})}
+            />
+            <TextInput
+              placeholder = 'Confirmer mot de passe'
+              placeholderTextColor = 'white'
+              returnKeyType = 'go'
+              secureTextEntry
+              underlineColorAndroid = {'transparent'}
+              ref = {(input) => this.confirmPasswordInput = input}
+              style = {styles.input}
+              value = {this.state.confirmPassword}
+              onChangeText = {(confirmPassword) => this.setState({confirmPassword})}
+            />
+            <TouchableOpacity
+              style={[styles.buttonContainer, {marginTop: 10}]}
+              onPress = {() => this.signup()}
+            >
+              <Text style={styles.buttonText}>SIGN UP</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
     )
   }
 }

@@ -17,7 +17,7 @@ export default {
   input: {
     height: 50,
     backgroundColor: "rgba(255,255,255,0.2)",
-    marginBottom: 30,
+    marginBottom: 15,
     color: 'white',
     fontSize: 16,
     paddingHorizontal: 10,
@@ -25,7 +25,7 @@ export default {
   buttonContainer: {
     backgroundColor: 'white',
     paddingVertical: 15,
-    marginTop: 40,
+    marginTop: 30,
   },
   buttonText: {
     textAlign: 'center',

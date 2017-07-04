@@ -7,8 +7,8 @@ import material from "../native-base-theme/variables/material";
 import platform from "../native-base-theme/variables/platform";
 
 import Home from "./components/home/";
-import SignupForm from "./components/Auth/SignupForm";
-import LoginForm from "./components/Auth/LoginForm";
+import SignupForm from "./components/authentication/SignupForm";
+import LoginForm from "./components/authentication/LoginForm";
 import AddList from "./components/addList/AddList";
 import AddItem from "./components/addItem/AddItem";
 import Header from "./components/Header/";

@@ -8,8 +8,8 @@ import { StackNavigator } from "react-navigation";
 
 import Drawer from "./Drawer";
 import Header from "./components/Header/";
-import SignupForm from "./components/Auth/SignupForm";
-import LoginForm from "./components/Auth/LoginForm";
+import SignupForm from "./components/authentication/SignupForm";
+import LoginForm from "./components/authentication/LoginForm";
 import AddList from "./components/addList/AddList";
 import AddItem from "./components/addItem/AddItem";
 import Header1 from "./components/Header/1";

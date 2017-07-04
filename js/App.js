@@ -8,6 +8,10 @@ import { StackNavigator } from "react-navigation";
 
 import Drawer from "./Drawer";
 import Header from "./components/Header/";
+import SignupForm from "./components/Auth/SignupForm";
+import LoginForm from "./components/Auth/LoginForm";
+import AddList from "./components/addList/AddList";
+import AddItem from "./components/addItem/AddItem";
 import Header1 from "./components/Header/1";
 import Header2 from "./components/Header/2";
 import Header3 from "./components/Header/3";
@@ -82,6 +86,10 @@ import AdvancedDeck from "./components/deckswiper/advanced";
 const AppNavigator = StackNavigator(
 	{
 		Drawer: { screen: Drawer },
+		SignupForm: {screen: SignupForm},
+		LoginForm: {screen: LoginForm},
+		AddList: {screen: AddList},
+		AddItem: {screen: AddItem},
 
 		Header1: { screen: Header1 },
 		Header2: { screen: Header2 },

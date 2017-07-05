@@ -29,7 +29,7 @@ const datas = [
   "Item 1.7",
 ];
 
-class Liste1 extends Component {
+class List1 extends Component {
   render() {
     return (
       <Container style={styles.container}>
@@ -40,7 +40,7 @@ class Liste1 extends Component {
             </Button>
           </Left>
           <Body>
-            <Title>List 1</Title>
+            <Title>Liste 1</Title>
           </Body>
           <Right />
         </Header>
@@ -59,4 +59,4 @@ class Liste1 extends Component {
   }
 }
 
-export default Liste1;
+export default List1;

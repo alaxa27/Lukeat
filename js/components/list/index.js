@@ -6,37 +6,27 @@ import styles from './styles';
 
 const datas = [
 	{
-		route: 'NHBasicList',
-		text: 'Basic List',
+		route: 'Liste1',
+		text: 'Liste 1',
 	},
 	{
-		route: 'NHListDivider',
-		text: 'List Divider',
+		route: 'Liste2',
+		text: 'Liste 2',
 	},
 	{
-		route: 'NHListHeader',
-		text: 'List Header',
-	},
-	{
-		route: 'NHListIcon',
-		text: 'List Icon',
-	},
-	{
-		route: 'NHListAvatar',
-		text: 'List Avatar',
-	},
-	{
-		route: 'NHListThumbnail',
-		text: 'List Thumbnail',
-	},
-	,
-	{
-		route: 'NHListSeparator',
-		text: 'List Separator',
+		route: 'Liste3',
+		text: 'Liste 3',
 	},
 ];
 
 class NHList extends Component {
+	constructor(props) {
+    super(props)
+    this.state = {
+      userID: this.props.navigation.state.params.userID
+      }
+  }
+
 	render() {
 		return (
 			<Container style={styles.container}>
@@ -47,7 +37,7 @@ class NHList extends Component {
 						</Button>
 					</Left>
 					<Body>
-						<Title>List</Title>
+						<Title>Mes recettes</Title>
 					</Body>
 					<Right />
 				</Header>
@@ -66,6 +56,9 @@ class NHList extends Component {
 							</ListItem>}
 					/>
 				</Content>
+				<Button block onPress={() => this.props.navigation.navigate('AddList')}>
+					<Text>Ajouter une recette</Text>
+				</Button>
 			</Container>
 		);
 	}

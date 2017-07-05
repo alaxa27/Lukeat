@@ -8,6 +8,10 @@ import { StackNavigator } from "react-navigation";
 
 import Drawer from "./Drawer";
 import Header from "./components/Header/";
+import SignupForm from "./components/authentication/SignupForm";
+import LoginForm from "./components/authentication/LoginForm";
+import AddList from "./components/addList/AddList";
+import AddItem from "./components/addItem/AddItem";
 import Header1 from "./components/Header/1";
 import Header2 from "./components/Header/2";
 import Header3 from "./components/Header/3";
@@ -62,6 +66,9 @@ import NHListHeader from "./components/list/list-headers";
 import NHListIcon from "./components/list/list-icon";
 import NHListAvatar from "./components/list/list-avatar";
 import NHListThumbnail from "./components/list/list-thumbnail";
+import Liste1 from "./components/list/liste1";
+import Liste2 from "./components/list/liste2";
+import Liste3 from "./components/list/liste3";
 import RegularPicker from "./components/picker/regularPicker";
 import PlaceholderPicker from "./components/picker/placeholderPicker";
 import PlaceholderPickerNote from "./components/picker/placeholderPickernote";
@@ -82,6 +89,10 @@ import AdvancedDeck from "./components/deckswiper/advanced";
 const AppNavigator = StackNavigator(
 	{
 		Drawer: { screen: Drawer },
+		SignupForm: {screen: SignupForm},
+		LoginForm: {screen: LoginForm},
+		AddList: {screen: AddList},
+		AddItem: {screen: AddItem},
 
 		Header1: { screen: Header1 },
 		Header2: { screen: Header2 },
@@ -145,6 +156,9 @@ const AppNavigator = StackNavigator(
 		NHListIcon: { screen: NHListIcon },
 		NHListAvatar: { screen: NHListAvatar },
 		NHListThumbnail: { screen: NHListThumbnail },
+		Liste1: { screen: Liste1 },
+		Liste2: { screen: Liste2 },
+		Liste3: { screen: Liste3 },
 
 		BasicListSwipe: { screen: BasicListSwipe },
 		MultiListSwipe: { screen: MultiListSwipe },

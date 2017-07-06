@@ -31,13 +31,17 @@ class NHList extends Component {
 		this.afficherBarreRecherche = this.afficherBarreRecherche.bind(this)
   }
 
+
 	toggleTitleBar() {
-		if (this.state.recherche === '') {
-			this.setState({
-			  showSearchBar: !this.state.showSearchBar
-			});
-		} else {
+
+		if (this.state.recherche === '' && this.state.showSearchBar === true) {
+			alert('Saisissez un mot pour lancer la recherche')
+		} else if (this.state.recherche !== '' && this.state.showSearchBar === true){
 			this.rechercher()
+		} else {
+			this.setState({
+				showSearchBar: true
+			});
 		}
 	}
 
@@ -74,8 +78,8 @@ class NHList extends Component {
       return (
 				<Header searchBar rounded>
 					<Item>
-						<Button transparent onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-							<Icon name="menu" />
+						<Button transparent onPress={() => this.setState({showSearchBar: false, recherche: ''})}>
+							<Icon name="arrow-back" />
 						</Button>
 						<Input
 		          autoCapitalize='words'

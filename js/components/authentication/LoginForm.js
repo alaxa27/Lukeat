@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Text, Button, View, TextInput, TouchableOpacity } from 'react-native'
+import { Text, Button, View, TextInput, TouchableOpacity, Image } from 'react-native'
 import styles from "./styles";
 import { firebaseRef, fetchUserData } from '../../firebase/firebase'
 
+const launchscreenBg = require("../../../img/home-wallpaper.jpg");
 
 export default class LoginForm extends Component {
 
@@ -29,36 +30,38 @@ export default class LoginForm extends Component {
   render() {
     return(
       <View style={styles.container} >
-        <View style={styles.view} >
-          <TextInput
-            placeholder = 'Email'
-            placeholderTextColor = 'white'
-            returnKeyType = 'next'
-            keyboardType='email-address'
-            underlineColorAndroid = {'transparent'}
-            onSubmitEditing = {() => this.passwordInput.focus()}
-            style = {[styles.input, {marginBottom: 30}]}
-            value = {this.state.email}
-            onChangeText = {(email) => this.setState({email})}
-          />
-          <TextInput
-            placeholder = 'Mot de passe'
-            placeholderTextColor = 'white'
-            returnKeyType = 'go'
-            secureTextEntry
-            underlineColorAndroid = {'transparent'}
-            ref = {(input) => this.passwordInput = input}
-            style = {[styles.input, {marginBottom: 30}]}
-            value = {this.state.password}
-            onChangeText = {(password) => this.setState({password})}
-          />
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress = {() => this.login()}
-          >
-            <Text style={styles.buttonText}>LOGIN</Text>
-          </TouchableOpacity>
-        </View>
+        <Image source={launchscreenBg} style={styles.imageContainer}>
+          <View style={styles.view} >
+            <TextInput
+              placeholder = 'Email'
+              placeholderTextColor = 'white'
+              returnKeyType = 'next'
+              keyboardType='email-address'
+              underlineColorAndroid = {'transparent'}
+              onSubmitEditing = {() => this.passwordInput.focus()}
+              style = {[styles.input, {marginBottom: 30}]}
+              value = {this.state.email}
+              onChangeText = {(email) => this.setState({email})}
+            />
+            <TextInput
+              placeholder = 'Mot de passe'
+              placeholderTextColor = 'white'
+              returnKeyType = 'go'
+              secureTextEntry
+              underlineColorAndroid = {'transparent'}
+              ref = {(input) => this.passwordInput = input}
+              style = {[styles.input, {marginBottom: 30}]}
+              value = {this.state.password}
+              onChangeText = {(password) => this.setState({password})}
+            />
+            <TouchableOpacity
+              style={styles.buttonContainer}
+              onPress = {() => this.login()}
+            >
+              <Text style={styles.buttonText}>LOGIN</Text>
+            </TouchableOpacity>
+          </View>
+        </Image>
       </View>
     )
   }

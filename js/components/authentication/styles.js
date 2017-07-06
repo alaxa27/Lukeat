@@ -5,7 +5,12 @@ const { StyleSheet } = React;
 export default {
   container: {
     flex: 1,
-    backgroundColor: '#349ce2', // light blue
+    //backgroundColor: '#349ce2', // light blue
+  },
+  imageContainer: {
+    flex: 1,
+    width: null,
+    height: null
   },
   view: {
     flex: 1,
@@ -29,7 +34,8 @@ export default {
   },
   buttonText: {
     textAlign: 'center',
-    color: '#349ce2',
-    fontWeight: '900',
+    color: "#6FAF98",
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 };

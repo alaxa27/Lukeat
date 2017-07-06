@@ -5,7 +5,7 @@ import { Container, Button, H3, Text, Header, Title, Body, Left, Right } from "n
 
 import styles from "./styles";
 
-const launchscreenBg = require("../../../img/launchscreen-bg.png");
+const launchscreenBg = require("../../../img/home-wallpaper.jpg");
 const launchscreenLogo = require("../../../img/SaveEat.png");
 
 class Home extends Component {
@@ -19,18 +19,18 @@ class Home extends Component {
 					<View style={styles.logoContainer}>
 						<Image source={launchscreenLogo} style={styles.logo} />
 					</View>
-					<View style={{ marginBottom: 130 }}>
+					<View style={{ flex: 1, alignItems: 'stretch', marginBottom: 130, marginHorizontal: 100 }}>
 						<Button
-							style={{ backgroundColor: "#6FAF98", alignSelf: "center", marginBottom: 20 }}
+							style={{ backgroundColor: "white", alignSelf: "center", marginBottom: 40, width: 150 }}
 							onPress={() => this.props.navigation.navigate("SignupForm")}
 						>
-							<Text>Sign up</Text>
+							<Text style={{textAlign: 'center', color: "#6FAF98", marginLeft: 27, fontWeight: 'bold', fontSize: 16 }}>Sign up</Text>
 						</Button>
 						<Button
-							style={{ backgroundColor: "#6FAF98", alignSelf: "center" }}
+							style={{ backgroundColor: "white", alignSelf: "center", width: 150 }}
 							onPress={() => this.props.navigation.navigate("LoginForm")}
 						>
-							<Text>Log in</Text>
+							<Text style={{textAlign: 'center', color: "#6FAF98", marginLeft: 33, fontWeight: 'bold', fontSize: 16 }}>Log in</Text>
 						</Button>
 					</View>
 				</Image>

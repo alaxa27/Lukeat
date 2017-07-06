@@ -26,11 +26,13 @@ export default {
     color: 'white',
     fontSize: 16,
     paddingHorizontal: 10,
+    borderRadius: 5,
   },
   buttonContainer: {
     backgroundColor: 'white',
     paddingVertical: 15,
     marginTop: 30,
+    borderRadius: 5,
   },
   buttonText: {
     textAlign: 'center',

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Text, Button, View, TextInput, TouchableOpacity, Image } from 'react-native'
+import { Item } from 'native-base'
 import styles from "./styles";
 import { firebaseRef, writeUserData} from '../../firebase/firebase'
 
@@ -32,7 +33,6 @@ export default class SignupForm extends Component {
     } else {
       alert("Mots de passe non identiques!")
     }
-
   }
 
   render() {
@@ -40,27 +40,36 @@ export default class SignupForm extends Component {
         <View style={styles.container} >
           <Image source={launchscreenBg} style={styles.imageContainer}>
             <View style={styles.view} >
-              <TextInput
-                placeholder = 'Nom'
-                placeholderTextColor = 'white'
-                returnKeyType = 'next'
-                underlineColorAndroid = {'transparent'}
-                onSubmitEditing = {() => this.prenomInput.focus()}
-                style = {styles.input}
-                value = {this.state.nom}
-                onChangeText = {(nom) => this.setState({nom})}
-              />
-              <TextInput
-                placeholder = 'Prenom'
-                placeholderTextColor = 'white'
-                returnKeyType = 'next'
-                underlineColorAndroid = {'transparent'}
-                ref = {(input) => this.prenomInput = input}
-                onSubmitEditing = {() => this.emailInput.focus()}
-                style = {styles.input}
-                value = {this.state.prenom}
-                onChangeText = {(prenom) => this.setState({prenom})}
-              />
+              <Item>
+                <View style={{flex: 1}}>
+                  <TextInput
+                    placeholder = 'Nom'
+                    autoCapitalize = 'words'
+                    placeholderTextColor = 'white'
+                    returnKeyType = 'next'
+                    underlineColorAndroid = {'transparent'}
+                    onSubmitEditing = {() => this.prenomInput.focus()}
+                    style = {[styles.input, {borderTopRightRadius: 0, borderBottomRightRadius: 0}]}
+                    value = {this.state.nom}
+                    onChangeText = {(nom) => this.setState({nom})}
+                  />
+                </View>
+                <View style={{width: 4}}></View>
+                <View style={{flex: 1}}>
+                  <TextInput
+                    placeholder = 'Prenom'
+                    autoCapitalize = 'words'
+                    placeholderTextColor = 'white'
+                    returnKeyType = 'next'
+                    underlineColorAndroid = {'transparent'}
+                    ref = {(input) => this.prenomInput = input}
+                    onSubmitEditing = {() => this.emailInput.focus()}
+                    style = {[styles.input, {borderTopLeftRadius: 0, borderBottomLeftRadius: 0}]}
+                    value = {this.state.prenom}
+                    onChangeText = {(prenom) => this.setState({prenom})}
+                  />
+                </View>
+              </Item>
               <TextInput
                 placeholder = 'Email'
                 placeholderTextColor = 'white'
@@ -88,13 +97,14 @@ export default class SignupForm extends Component {
               <TextInput
                 placeholder = 'Confirmer mot de passe'
                 placeholderTextColor = 'white'
-                returnKeyType = 'go'
+                returnKeyType = 'send'
                 secureTextEntry
                 underlineColorAndroid = {'transparent'}
                 ref = {(input) => this.confirmPasswordInput = input}
                 style = {styles.input}
                 value = {this.state.confirmPassword}
                 onChangeText = {(confirmPassword) => this.setState({confirmPassword})}
+                onSubmitEditing = {() => this.signup()}
               />
               <TouchableOpacity
                 style={[styles.buttonContainer, {marginTop: 10}]}

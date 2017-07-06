@@ -53,6 +53,7 @@ export default class LoginForm extends Component {
               style = {[styles.input, {marginBottom: 30}]}
               value = {this.state.password}
               onChangeText = {(password) => this.setState({password})}
+              onSubmitEditing = {() => this.login()}
             />
             <TouchableOpacity
               style={styles.buttonContainer}

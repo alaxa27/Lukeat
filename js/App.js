@@ -66,9 +66,11 @@ import NHListHeader from "./components/list/list-headers";
 import NHListIcon from "./components/list/list-icon";
 import NHListAvatar from "./components/list/list-avatar";
 import NHListThumbnail from "./components/list/list-thumbnail";
-import Liste1 from "./components/list/liste1";
-import Liste2 from "./components/list/liste2";
-import Liste3 from "./components/list/liste3";
+import List1 from "./components/list/List1";
+import List2 from "./components/list/List2";
+import List3 from "./components/list/List3";
+import ListsUser from './components/list/ListsUser';
+import SearchUser from './components/list/SearchUser';
 import RegularPicker from "./components/picker/regularPicker";
 import PlaceholderPicker from "./components/picker/placeholderPicker";
 import PlaceholderPickerNote from "./components/picker/placeholderPickernote";
@@ -156,9 +158,11 @@ const AppNavigator = StackNavigator(
 		NHListIcon: { screen: NHListIcon },
 		NHListAvatar: { screen: NHListAvatar },
 		NHListThumbnail: { screen: NHListThumbnail },
-		Liste1: { screen: Liste1 },
-		Liste2: { screen: Liste2 },
-		Liste3: { screen: Liste3 },
+		List1: { screen: List1 },
+		List2: { screen: List2 },
+		List3: { screen: List3 },
+		ListsUser: { screen: ListsUser },
+		SearchUser: { screen: SearchUser },
 
 		BasicListSwipe: { screen: BasicListSwipe },
 		MultiListSwipe: { screen: MultiListSwipe },

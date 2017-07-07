@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, Button, View, TextInput, TouchableOpacity, Image } from 'react-native'
+import { Text, Button, View, TextInput, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import { Item } from 'native-base'
 import styles from "./styles";
 import { firebaseRef, writeUserData} from '../../firebase/firebase'
@@ -22,16 +22,40 @@ export default class SignupForm extends Component {
 
   static navigationOptions = {
     title: 'Créer un compte',
+    spinner: false,
   }
 
   signup() {
     if (this.state.password === this.state.confirmPassword) {
+      this.setState({ spinner: true})
       firebaseRef.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
       writeUserData(user.uid, this.state.nom, this.state.prenom, this.state.email)
       this.props.navigation.navigate("NHList", {userID: user.uid})
-      }).catch((error) => alert(error.message))
+    }).catch((error) => {
+      this.setState({ spinner: false})
+      alert(error.message)
+    })
     } else {
       alert("Mots de passe non identiques!")
+    }
+  }
+
+  displayTextButton() {
+    if(!this.state.spinner) {
+      return(
+        <Text style={styles.buttonText}>SIGN UP</Text>
+      )
+    } else {
+      return (null)
+    }
+  }
+
+  displaySpinner() {
+    if (this.state.spinner) {
+      return (
+        <ActivityIndicator color='#6FAF98' size='small'/>
+    )} else {
+      return null
     }
   }
 
@@ -110,7 +134,8 @@ export default class SignupForm extends Component {
                 style={[styles.buttonContainer, {marginTop: 10}]}
                 onPress = {() => this.signup()}
               >
-                <Text style={styles.buttonText}>SIGN UP</Text>
+                {this.displayTextButton()}
+                {this.displaySpinner()}
               </TouchableOpacity>
             </View>
           </Image>

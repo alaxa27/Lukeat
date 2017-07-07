@@ -33,6 +33,8 @@ export default {
     paddingVertical: 15,
     marginTop: 30,
     borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonText: {
     textAlign: 'center',

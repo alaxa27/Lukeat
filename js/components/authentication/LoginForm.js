@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, Button, View, TextInput, TouchableOpacity, Image } from 'react-native'
+import { Text, Button, View, TextInput, TouchableOpacity, Image, ActivityIndicator } from 'react-native'
 import styles from "./styles";
 import { firebaseRef, fetchUserData } from '../../firebase/firebase'
 
@@ -12,8 +12,8 @@ export default class LoginForm extends Component {
     this.state = {
       email: 'osama@osama.com',
       password: 'osamaosama',
+      spinner: false,
       }
-    this.login = this.login.bind(this)
   }
 
   static navigationOptions = {
@@ -21,10 +21,32 @@ export default class LoginForm extends Component {
   }
 
   login() {
+    this.setState({ spinner: true})
     firebaseRef.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((user) => {
-    this.props.navigation.navigate("NHList", {userID: user.uid})
-    }).catch((error) => alert(`${error.code}: ${error.message}`));
+      this.props.navigation.navigate("NHList", {userID: user.uid})
+    }).catch((error) => {
+      this.setState({ spinner: false})
+      alert(`${error.code}: ${error.message}`);
+    })
+  }
 
+  displayTextButton() {
+    if(!this.state.spinner) {
+      return(
+        <Text style={styles.buttonText}>LOG IN</Text>
+      )
+    } else {
+      return (null)
+    }
+  }
+
+  displaySpinner() {
+    if (this.state.spinner) {
+      return (
+        <ActivityIndicator color='#6FAF98' size='small'/>
+    )} else {
+      return null
+    }
   }
 
   render() {
@@ -59,7 +81,8 @@ export default class LoginForm extends Component {
               style={styles.buttonContainer}
               onPress = {() => this.login()}
             >
-              <Text style={styles.buttonText}>LOGIN</Text>
+              {this.displayTextButton()}
+              {this.displaySpinner()}
             </TouchableOpacity>
           </View>
         </Image>

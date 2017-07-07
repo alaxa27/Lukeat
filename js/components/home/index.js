@@ -20,7 +20,7 @@ class Home extends Component {
 						<Animatable.Image animation='fadeIn' duration={700} source={launchscreenLogo} style={styles.logo} />
 					</View>
 					<View style={{ flex: 1, marginBottom: 130 }}>
-						<Animatable.View animation='bounceIn' iterationCount={2} delay={350}>
+						<Animatable.View animation='bounceIn' delay={300}>
 							<Button
 								style={{ backgroundColor: "white", alignSelf: "center", marginBottom: 40, width: 150, borderRadius: 5 }}
 								onPress={() => this.props.navigation.navigate("SignupForm")}
@@ -28,7 +28,7 @@ class Home extends Component {
 								<Text style={{textAlign: 'center', color: "#6FAF98", marginLeft: 27, fontWeight: 'bold', fontSize: 16 }}>Sign up</Text>
 							</Button>
 						</Animatable.View>
-						<Animatable.View animation='bounceInUp' delay={250}>
+						<Animatable.View animation='bounceInUp' delay={300}>
 							<Button
 								style={{ backgroundColor: "white", alignSelf: "center", width: 150, borderRadius: 5 }}
 								onPress={() => this.props.navigation.navigate("LoginForm")}

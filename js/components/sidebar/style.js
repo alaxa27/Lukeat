@@ -21,12 +21,16 @@ export default {
   drawerImage: {
     position: "absolute",
     // left: (Platform.OS === 'android') ? 30 : 40,
-    left: Platform.OS === "android" ? deviceWidth / 10 : deviceWidth / 9,
+    left: Platform.OS === "android" ? deviceWidth * 9 / 32 : deviceWidth / 9,
     // top: (Platform.OS === 'android') ? 45 : 55,
-    top: Platform.OS === "android" ? deviceHeight / 13 : deviceHeight / 12,
-    width: 210,
-    height: 75,
-    resizeMode: "cover"
+    top: Platform.OS === "android" ? deviceHeight / 16 : deviceHeight / 12,
+    width: 100,
+    height: 100,
+    resizeMode: "cover",
+    borderTopLeftRadius: 17,
+    borderTopRightRadius: 17,
+    borderBottomRightRadius: 17,
+    borderBottomLeftRadius: 2,
   },
   listItemContainer: {
     flexDirection: "row",

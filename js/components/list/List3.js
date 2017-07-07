@@ -49,7 +49,7 @@ class List3 extends Component {
           <List
             dataArray={datas}
             renderRow={data =>
-              <ListItem>
+              <ListItem style={styles.listItem}>
                 <Text>{data}</Text>
               </ListItem>}
           />

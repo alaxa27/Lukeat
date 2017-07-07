@@ -40,7 +40,7 @@ class ListsUser extends Component {
 					<List
 						dataArray={datas}
 						renderRow={data =>
-							<ListItem button onPress={() => this.props.navigation.navigate(data.route)}>
+							<ListItem button style={styles.listItem} onPress={() => this.props.navigation.navigate(data.route)}>
 								<Text>
 									{data.text}
 								</Text>

@@ -20,5 +20,8 @@ export default {
   input: {
     paddingHorizontal: 10,
 	},
-
+  
+  listItem: {
+    height: 70,
+  }
 };

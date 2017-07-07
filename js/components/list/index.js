@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { View } from 'react-native'
 import { Container, Header, Title, Content, Button, Icon, Text, Left, Right, Body, List, ListItem, Input, Item} from 'native-base';
-
+import * as Animatable from 'react-native-animatable'
 import styles from './styles';
 
 const datas = [
@@ -65,6 +66,7 @@ class NHList extends Component {
 						<Button transparent onPress={() => this.toggleTitleBar()}>
 							<Icon name="search" />
 						</Button>
+						<Button transparent><Icon name="more" /></Button>
 					</Right>
 				</Header>
       );
@@ -84,9 +86,11 @@ class NHList extends Component {
 						<Input
 		          autoCapitalize='words'
 							placeholder = 'Chercher un utilisateur'
+							returnKeyType = 'search'
 							style = {styles.input}
 		          value = {this.state.recherche}
 		          onChangeText = {(recherche) => this.setState({recherche})}
+							onSubmitEditing = {() => this.toggleTitleBar()}
 		        />
 						<Button transparent onPress={() => this.toggleTitleBar()}>
 							<Icon name="search" />
@@ -108,7 +112,7 @@ class NHList extends Component {
 					<List
 						dataArray={datas}
 						renderRow={data =>
-							<ListItem button onPress={() => this.props.navigation.navigate(data.route)}>
+							<ListItem button style={styles.listItem} onPress={() => this.props.navigation.navigate(data.route)}>
 								<Text>
 									{data.text}
 								</Text>
